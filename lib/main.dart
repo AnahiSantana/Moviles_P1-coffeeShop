@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/home.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: PRIMARY_COLOR,
       ),
-      home: Home(title: APP_TITLE),
+      home: Splash2(),
+    );
+  }
+}
+
+class Splash2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 8,
+      navigateAfterSeconds: Home(title: APP_TITLE),
+      imageBackground: AssetImage('assets/images/coffee.jpg'),
+      image: Image.asset('assets/images/cupping_logo.png'),
+      photoSize: 150.0,
     );
   }
 }
