@@ -1,3 +1,5 @@
+import 'package:estructura_practica_1/home/home.dart';
+import 'package:estructura_practica_1/utils/constants.dart';
 import 'package:estructura_practica_1/login/login.dart';
 import 'package:flutter/material.dart';
 
@@ -85,7 +87,15 @@ class _SignUpState extends State<SignUp> {
               child: Text("REGISTRATE"),
               color: Theme.of(context).accentColor,
               height: 50,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Home(title: APP_TITLE);
+                    },
+                  ),
+                );
+              },
             ),
           ),
           Padding(

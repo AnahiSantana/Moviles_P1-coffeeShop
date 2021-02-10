@@ -1,6 +1,7 @@
+import 'package:estructura_practica_1/home/home.dart';
 import 'package:estructura_practica_1/login/sign_up.dart';
-import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
+import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
@@ -13,7 +14,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: SECONDARY_COLOR,
+      backgroundColor: Theme.of(context).primaryColor,
       body: ListView(
         children: [
           Padding(
@@ -51,9 +52,17 @@ class _LoginState extends State<Login> {
             padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
             child: MaterialButton(
               child: Text("ENTRAR"),
-              color: TERCEARY_COLOR,
+              color: Theme.of(context).accentColor,
               height: 50,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Home(title: APP_TITLE);
+                    },
+                  ),
+                );
+              },
             ),
           ),
           Align(

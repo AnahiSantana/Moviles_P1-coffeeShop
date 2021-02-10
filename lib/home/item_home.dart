@@ -19,30 +19,19 @@ class ItemHome extends StatelessWidget {
             top: 16,
             child: Card(
               elevation: 4.0,
-              margin: EdgeInsets.all(24.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              color: Colors.indigo,
+              margin: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
               child: Container(height: 180),
             ),
           ),
           Container(
             height: 160,
             margin: EdgeInsets.only(top: 28, bottom: 24, left: 24, right: 24),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.all(
-                Radius.circular(30),
-              ),
-            ),
             child: Row(
               children: [
                 Container(
                   margin: EdgeInsets.only(left: 16),
                   width: 160,
                   decoration: BoxDecoration(
-                    color: Colors.yellow[300],
                     borderRadius: BorderRadius.all(
                       Radius.circular(30),
                     ),

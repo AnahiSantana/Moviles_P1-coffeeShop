@@ -15,4 +15,6 @@ const String PROFILE_PICTURE =
     "https://dkpp.go.id/wp-content/uploads/2018/10/photo.jpg";
 
 // app
-const Color PRIMARY_COLOR = Colors.indigo;
+const Color PRIMARY_COLOR = Color(0xff214254);
+const Color ACCENT_COLOR = Color(0xffBCB0A1);
+const Color PCOLOR = Color(0xff22223b);

@@ -1,5 +1,5 @@
+import 'package:estructura_practica_1/login/choose.dart';
 import 'package:flutter/material.dart';
-import 'package:estructura_practica_1/home/home.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: APP_TITLE,
       theme: ThemeData(
-        primarySwatch: PRIMARY_COLOR,
+        primaryColor: PRIMARY_COLOR,
+        accentColor: ACCENT_COLOR,
+        cardColor: ACCENT_COLOR,
       ),
       home: Splash2(),
     );
@@ -24,10 +26,10 @@ class Splash2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 8,
-      navigateAfterSeconds: Home(title: APP_TITLE),
+      navigateAfterSeconds: Choose(),
       imageBackground: AssetImage('assets/images/coffee.jpg'),
       image: Image.asset('assets/images/cupping_logo.png'),
-      photoSize: 150.0,
+      photoSize: 120.0,
     );
   }
 }
