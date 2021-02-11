@@ -1,6 +1,8 @@
+import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/item_home.dart';
 import 'package:estructura_practica_1/profile.dart';
+import 'package:estructura_practica_1/utils/constants.dart';
 
 class Home extends StatefulWidget {
   final String title;
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return null;
+          return HotDrinksPage(drinksList: hotdrinks);
         },
       ),
     );

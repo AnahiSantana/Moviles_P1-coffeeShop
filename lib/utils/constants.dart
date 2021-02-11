@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:estructura_practica_1/models/product_hot_drinks.dart';
+import 'package:estructura_practica_1/models/product_repository.dart';
 
 // home
 const String APP_TITLE = "Snacks shop";
@@ -18,3 +20,7 @@ const String PROFILE_PICTURE =
 const Color PRIMARY_COLOR = Color(0xff214254);
 const Color ACCENT_COLOR = Color(0xffBCB0A1);
 const Color PCOLOR = Color(0xff22223b);
+
+//lists
+List<ProductHotDrinks> hotdrinks =
+    ProductRepository.loadProducts(ProductType.BEBIDAS);
