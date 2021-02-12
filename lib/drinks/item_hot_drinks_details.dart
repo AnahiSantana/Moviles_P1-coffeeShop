@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/cart/cart.dart';
 import 'package:estructura_practica_1/models/product_item_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
@@ -24,6 +25,17 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
       appBar: AppBar(
         title: Text("${widget.drink.productTitle}"),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => Cart(productsList: cartlist)),
+              );
+            },
+          )
+        ],
       ),
       body: ListView(
         children: [
@@ -69,12 +81,28 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
           Container(
             child: Column(
               children: [
-                Text("${widget.drink.productTitle}"),
+                Text(
+                  "${widget.drink.productTitle}",
+                  style: Theme.of(context).textTheme.headline1,
+                ),
                 Text("${widget.drink.productDescription}"),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("TAMAÑOS DISPONIBLES"),
-                    Text("\$${widget.drink.productPrice}"),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+                      child: Text(
+                        "TAMAÑOS DISPONIBLES",
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(100, 20, 20, 0),
+                      child: Text(
+                        "\$${widget.drink.productPrice}",
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                    ),
                   ],
                 ),
               ],

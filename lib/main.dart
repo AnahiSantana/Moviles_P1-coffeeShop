@@ -17,6 +17,13 @@ class MyApp extends StatelessWidget {
         cardColor: ACCENT_COLOR,
         buttonColor: ACCENT_COLOR,
         splashColor: PCOLOR,
+        textTheme: TextTheme(
+            headline1: TextStyle(
+                fontSize: 25.0,
+                fontFamily: 'AkzidenGrotesk',
+                color: PRIMARY_COLOR),
+            caption: TextStyle(fontSize: 12.0)),
+        fontFamily: 'OpensSans',
       ),
       home: Splash2(),
     );
