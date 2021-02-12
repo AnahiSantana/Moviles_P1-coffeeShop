@@ -58,11 +58,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                             color: widget.drink.liked
                                 ? Theme.of(context).primaryColor
                                 : null),
-                        onPressed: () {
-                          setState(() {
-                            widget.drink.liked = !widget.drink.liked;
-                          });
-                        },
+                        onPressed: () {},
                       ),
                     ),
                   ),
