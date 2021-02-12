@@ -28,6 +28,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Expanded(
+                flex: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -42,17 +43,16 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("${widget.drink.productPrice}"),
+                      child: Text("\$${widget.drink.productPrice}"),
                     ),
                   ],
                 ),
               ),
               Expanded(
+                flex: 2,
                 child: Image.network(
                   "${widget.drink.productImage}",
                   fit: BoxFit.contain,
-                  height: 130,
-                  width: 130,
                 ),
               ),
               Expanded(
@@ -85,7 +85,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return ItemHotDrinksDetails();
+          return ItemHotDrinksDetails(drink: widget.drink);
         },
       ),
     );

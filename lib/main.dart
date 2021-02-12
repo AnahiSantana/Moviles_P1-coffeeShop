@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
         primaryColor: PRIMARY_COLOR,
         accentColor: ACCENT_COLOR,
         cardColor: ACCENT_COLOR,
+        buttonColor: ACCENT_COLOR,
+        splashColor: PCOLOR,
       ),
       home: Splash2(),
     );

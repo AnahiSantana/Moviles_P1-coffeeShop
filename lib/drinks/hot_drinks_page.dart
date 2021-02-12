@@ -14,6 +14,7 @@ class HotDrinksPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Bebidas"),
+        centerTitle: true,
       ),
       body: ListView.builder(
         itemCount: drinksList.length,
