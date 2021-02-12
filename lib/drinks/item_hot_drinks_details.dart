@@ -1,5 +1,7 @@
+import 'package:estructura_practica_1/models/product_item_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
+import 'package:estructura_practica_1/utils/constants.dart';
 
 class ItemHotDrinksDetails extends StatefulWidget {
   final ProductHotDrinks drink;
@@ -13,9 +15,12 @@ class ItemHotDrinksDetails extends StatefulWidget {
 }
 
 class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("${widget.drink.productTitle}"),
         centerTitle: true,
@@ -143,7 +148,9 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   minWidth: 180,
                   color: Theme.of(context).accentColor,
                   child: Text("AGREGAR AL CARRITO"),
-                  onPressed: () {}),
+                  onPressed: () {
+                    _addToCart();
+                  }),
               MaterialButton(
                   height: 50,
                   minWidth: 180,
@@ -155,5 +162,33 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
         ],
       ),
     );
+  }
+
+  void _addToCart() {
+    bool exists = false;
+    for (ProductItemCart product in cartlist) {
+      if (product.productTitle == widget.drink.productTitle) {
+        exists = true;
+      }
+    }
+    if (!exists) {
+      ProductItemCart product = new ProductItemCart(
+          productTitle: widget.drink.productTitle,
+          productAmount: 1,
+          productPrice: widget.drink.productPrice,
+          productImage: widget.drink.productImage,
+          liked: widget.drink.liked);
+      cartlist.add(product);
+      final snackBar = SnackBar(content: Text("Producto agregado al carrito"));
+      _scaffoldKey.currentState
+        ..hideCurrentSnackBar()
+        ..showSnackBar(snackBar);
+    } else {
+      final snackBar =
+          SnackBar(content: Text("El producto ya se encontraba en el carrito"));
+      _scaffoldKey.currentState
+        ..hideCurrentSnackBar()
+        ..showSnackBar(snackBar);
+    }
   }
 }

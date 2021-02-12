@@ -6,11 +6,15 @@ class ProductItemCart {
   int productAmount;
   double productPrice;
   final ProductType typeOfProduct;
+  String productImage;
+  bool liked;
 
   ProductItemCart({
     this.typeOfProduct,
     @required this.productTitle,
     @required this.productAmount,
     @required this.productPrice,
+    @required this.productImage,
+    @required this.liked,
   });
 }
