@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ItemCart extends StatefulWidget {
@@ -17,32 +18,59 @@ class _ItemCartState extends State<ItemCart> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(24),
-      child: Column(
+      margin: EdgeInsets.all(10),
+      color: Theme.of(context).splashColor,
+      child: Row(
         children: <Widget>[
-          SizedBox(
-            height: 12,
-          ),
-          Text("${widget.product.productTitle}"),
-          SizedBox(
-            height: 12,
-          ),
-          IconButton(icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
-          SizedBox(
-            height: 12,
-          ),
-          IconButton(icon: Icon(Icons.remove_circle), onPressed: _remProd),
-          SizedBox(
-            height: 12,
-          ),
-          Text("${widget.product.productAmount}"),
-          SizedBox(
-            height: 12,
-          ),
-          Text("${widget.product.productPrice}"),
-          SizedBox(
-            height: 12,
-          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Image.network(
+                  "${widget.product.productImage}",
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Column(
+                children: [
+                  Text("${widget.product.productTitle}"),
+                  Row(
+                    children: [],
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      icon: Icon(
+                          widget.product.liked
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: widget.product.liked
+                              ? Theme.of(context).primaryColor
+                              : null),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.delete,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              )
+            ],
+          )
         ],
       ),
     );
@@ -56,9 +84,14 @@ class _ItemCartState extends State<ItemCart> {
   }
 
   void _remProd() {
-    setState(() {
-      --widget.product.productAmount;
-    });
-    widget.onAmountUpdated(-1 * widget.product.productPrice);
+    if (widget.product.productAmount > 0) {
+      setState(() {
+        --widget.product.productAmount;
+      });
+      widget.onAmountUpdated(-1 * widget.product.productPrice);
+    }
+    if (widget.product.productAmount == 0) {
+      cartlist.remove(widget.product);
+    }
   }
 }
