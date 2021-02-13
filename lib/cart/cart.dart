@@ -26,23 +26,60 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            child: ListView.builder(
-              itemCount: widget.productsList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ItemCart(
-                  onAmountUpdated: _priceUpdate,
-                  product: widget.productsList[index],
-                );
-              },
+      appBar: AppBar(
+        title: Text("Lista de compras"),
+        centerTitle: true,
+        actions: [],
+      ),
+      body: ListView(
+        children: [
+          Stack(
+            children: <Widget>[
+              Container(
+                height: MediaQuery.of(context).size.height * 0.68,
+                child: ListView.builder(
+                  itemCount: widget.productsList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ItemCart(
+                      onAmountUpdated: _priceUpdate,
+                      product: widget.productsList[index],
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 0, 8),
+            child: Row(
+              children: [
+                Text(
+                  "Total",
+                  style: Theme.of(context).textTheme.headline4,
+                )
+              ],
             ),
           ),
-          Positioned(
-            bottom: 0,
-            child: Text("Total: \$$_total"),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 0, 32),
+            child: Row(
+              children: [
+                Text(
+                  "\$$_total MX",
+                  style: Theme.of(context).textTheme.headline4,
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: MaterialButton(
+              child: Text("PAGAR"),
+              color: Theme.of(context).accentColor,
+              minWidth: 300,
+              height: 50,
+              onPressed: () {},
+            ),
           ),
         ],
       ),
