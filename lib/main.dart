@@ -31,7 +31,11 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'AkzidenGrotesk',
                 color: PRIMARY_COLOR),
             headline4: TextStyle(
-                fontSize: 20.0, fontFamily: 'OpensSans', color: Colors.black),
+              fontSize: 20.0,
+              fontFamily: 'OpensSans',
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
             caption: TextStyle(fontSize: 12.0)),
         fontFamily: 'OpensSans',
       ),
