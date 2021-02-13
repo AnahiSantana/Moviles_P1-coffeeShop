@@ -21,9 +21,9 @@ class _ItemCartState extends State<ItemCart> {
       margin: EdgeInsets.all(10),
       color: Theme.of(context).splashColor,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Padding(
@@ -35,13 +35,46 @@ class _ItemCartState extends State<ItemCart> {
                   fit: BoxFit.contain,
                 ),
               ),
-              Column(
-                children: [
-                  Text("${widget.product.productTitle}"),
-                  Row(
-                    children: [],
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "${widget.product.productTitle}",
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    Text(
+                      "\$${widget.product.productPrice}",
+                      style: Theme.of(context).textTheme.headline3,
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            icon: Icon(Icons.add_circle_outline),
+                            onPressed: _addProd),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        Text(
+                          "${widget.product.productAmount}",
+                          style: Theme.of(context).textTheme.headline2,
+                        ),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        IconButton(
+                            icon: Icon(Icons.remove_circle),
+                            onPressed: _remProd),
+                        SizedBox(
+                          height: 12,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
               Column(
                 children: [
@@ -61,10 +94,8 @@ class _ItemCartState extends State<ItemCart> {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: IconButton(
-                      icon: Icon(
-                        Icons.delete,
-                      ),
-                      onPressed: () {},
+                      icon: Icon(Icons.delete),
+                      onPressed: _deleteProduct,
                     ),
                   ),
                 ],
@@ -93,5 +124,11 @@ class _ItemCartState extends State<ItemCart> {
     if (widget.product.productAmount == 0) {
       cartlist.remove(widget.product);
     }
+  }
+
+  void _deleteProduct() {
+    widget.onAmountUpdated(
+        -1 * widget.product.productPrice * widget.product.productAmount);
+    cartlist.remove(widget.product);
   }
 }
