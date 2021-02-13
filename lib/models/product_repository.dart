@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:estructura_practica_1/models/product_grains.dart';
 
@@ -6,13 +7,47 @@ enum ProductType { BEBIDAS, GRANO, POSTRES }
 class ProductRepository {
   static List<dynamic> loadProducts(ProductType prodType) {
     // ----------------------              ----------------------------//
-    // ----------------------       Tazas      ----------------------------//
+    // ----------------------       Postres      ----------------------------//
     // ----------------------              ----------------------------//
-
-    //if (prodType == ProductType.POSTRES) {
-    // TODO: Agregar al menos 5 productos "postres"
-    //}
-
+    if (prodType == ProductType.POSTRES)
+      return <ProductDessert>[
+        ProductDessert(
+            productTitle: "Dona",
+            productDescription: "Dona glaseada rellena de Nutella.",
+            productImage:
+                "https://i.ibb.co/F0ygRCX/dona-glaseada-nutella-removebg-preview.png",
+            productPortion: ProductPortion.INDIVIDUAL,
+            productAmount: 1),
+        ProductDessert(
+            productTitle: "Cheesecake",
+            productDescription:
+                "Suave, dulce y cremoso cheesecake al estilo japonés.",
+            productImage:
+                "https://i.ibb.co/VjXKHLf/IMG-8766-1-removebg-preview.png",
+            productPortion: ProductPortion.INDIVIDUAL,
+            productAmount: 1),
+        ProductDessert(
+            productTitle: "Flan",
+            productDescription: "Delicioso flan con caramelo estilo casero.",
+            productImage:
+                "https://i.ibb.co/346Hw2j/delicioso-huevo-al-horno-flan-caramelo-liquido-aislado-148279-13-removebg-preview.png",
+            productPortion: ProductPortion.INDIVIDUAL,
+            productAmount: 1),
+        ProductDessert(
+            productTitle: "Galleta",
+            productDescription: "Tradicional galleta de chispas de chocolate.",
+            productImage:
+                "https://i.ibb.co/SVJNdvy/best-chocolate-chip-cookie-recipe-ever-no-chilling-683x1024-removebg-preview.png",
+            productPortion: ProductPortion.INDIVIDUAL,
+            productAmount: 1),
+        ProductDessert(
+            productTitle: "Tiramisú",
+            productDescription: "Pastel frío montada en capas con sabor a café",
+            productImage:
+                "https://i.ibb.co/Ryzc7tQ/1371597326801-removebg-preview.png",
+            productPortion: ProductPortion.INDIVIDUAL,
+            productAmount: 1)
+      ];
     // ----------------------              ----------------------------//
     // ----------------------       Granos      ----------------------------//
     // ----------------------              ----------------------------//

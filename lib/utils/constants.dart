@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
@@ -27,5 +28,6 @@ const Color PCOLOR = Color(0xffFABF7C);
 List<ProductHotDrinks> hotdrinks =
     ProductRepository.loadProducts(ProductType.BEBIDAS);
 List<ProductGrains> grains = ProductRepository.loadProducts(ProductType.GRANO);
-
+List<ProductDessert> desserts =
+    ProductRepository.loadProducts(ProductType.POSTRES);
 List<ProductItemCart> cartlist = <ProductItemCart>[];
