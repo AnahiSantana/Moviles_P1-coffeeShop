@@ -35,15 +35,22 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Café"),
+                      child: Text("Café",
+                          style: Theme.of(context).textTheme.caption),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("${widget.drink.productTitle}"),
+                      child: Text(
+                        "${widget.drink.productTitle}",
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("\$${widget.drink.productPrice}"),
+                      child: Text(
+                        "\$${widget.drink.productPrice}",
+                        style: Theme.of(context).textTheme.headline3,
+                      ),
                     ),
                   ],
                 ),
