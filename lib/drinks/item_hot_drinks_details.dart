@@ -1,5 +1,6 @@
 import 'package:estructura_practica_1/cart/cart.dart';
 import 'package:estructura_practica_1/models/product_item_cart.dart';
+import 'package:estructura_practica_1/payments/payments.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
@@ -180,7 +181,15 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   minWidth: 180,
                   color: Theme.of(context).accentColor,
                   child: Text("COMPRAR AHORA"),
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Payment();
+                        },
+                      ),
+                    );
+                  }),
             ],
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/payments/payments.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/cart/item_cart.dart';
 import 'package:estructura_practica_1/models/product_item_cart.dart';
@@ -78,7 +79,15 @@ class _CartState extends State<Cart> {
               color: Theme.of(context).accentColor,
               minWidth: 300,
               height: 50,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Payment();
+                    },
+                  ),
+                );
+              },
             ),
           ),
         ],
