@@ -1,5 +1,6 @@
 import 'package:estructura_practica_1/cart/cart.dart';
 import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
+import 'package:estructura_practica_1/grains/grains_page.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/item_home.dart';
 import 'package:estructura_practica_1/profile.dart';
@@ -51,13 +52,19 @@ class _HomeState extends State<Home> {
               image: "https://i.imgur.com/XJ0y9qs.png",
             ),
           ),
-          ItemHome(
-            title: "Postres",
-            image: "https://i.imgur.com/fI7Tezv.png",
+          GestureDetector(
+            onTap: _openDessertPage,
+            child: ItemHome(
+              title: "Postres",
+              image: "https://i.imgur.com/fI7Tezv.png",
+            ),
           ),
-          ItemHome(
-            title: "Granos",
-            image: "https://i.imgur.com/5MZocC1.png",
+          GestureDetector(
+            onTap: _openGrainsPage,
+            child: ItemHome(
+              title: "Granos",
+              image: "https://i.imgur.com/5MZocC1.png",
+            ),
           ),
           GestureDetector(
             onTap: () {
@@ -90,7 +97,11 @@ class _HomeState extends State<Home> {
 
   void _openGrainsPage() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => null),
+      MaterialPageRoute(
+        builder: (context) {
+          return GrainsPage(grainList: grains);
+        },
+      ),
     );
   }
 
