@@ -22,6 +22,16 @@ class MyApp extends StatelessWidget {
                 fontSize: 25.0,
                 fontFamily: 'AkzidenGrotesk',
                 color: PRIMARY_COLOR),
+            headline2: TextStyle(
+                fontSize: 20.0,
+                fontFamily: 'AkzidenGrotesk',
+                color: PRIMARY_COLOR),
+            headline3: TextStyle(
+                fontSize: 18.0,
+                fontFamily: 'AkzidenGrotesk',
+                color: PRIMARY_COLOR),
+            headline4: TextStyle(
+                fontSize: 20.0, fontFamily: 'OpensSans', color: Colors.black),
             caption: TextStyle(fontSize: 12.0)),
         fontFamily: 'OpensSans',
       ),
